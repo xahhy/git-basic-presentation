@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Git 基础</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		.reveal pre {
+			box-shadow: unset;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<section>
+					<h1 style="color: rgb(229,90,56)">Git 基础原理</h1>
+					<footer style="margin: 10rem 2rem;text-align: right">何泓渊</footer>
+				</section>
+				<section>
+					<h2>基于<span class="fragment highlight-red" data-fragment-index=1>差异</span>的版本管理</h2>
+					<h2 class="fragment highlight-red" data-fragment-index=1>delta-based</h2>
+					<p>SVN...</p>
+					<img src="assets/image/deltas.png" alt="">
+				</section>
+				<section>
+					<h2>基于<span class="fragment highlight-blue" data-fragment-index=1>快照</span>的版本管理</h2>
+					<h2 class="fragment highlight-blue" data-fragment-index=1>snapshots</h2>
+					<p>Git</p>
+					<img src="assets/image/snapshots.png" alt="">
+				</section>
+				<section>
+					<h2>一致性</h2>
+					<p>所有在 Git 中存储的文件都被计算过
+						<span class="fragment highlight-blue" data-fragment-index=1>校验和</span>
+						并且通过校验和来
+						<span class="fragment highlight-blue" data-fragment-index=1>索引</span>
+					</p>
+					<p>SHA-1 Hash: 40个字符长度(0-9和a-f)</p>
+					<pre><code data-trim>7de504fb32f2227f3616463b55fd02501ce2dd32</code></pre>
+				</section>
+				<section data-markdown>
+					> Git is fundamentally a content-addressable filesystem with a VCS user interface written on top of it
+				</section>
+				<section class="text-left">
+					<h2>Git 创建二进制文件过程</h2>
+					<ul>
+						<li class="fragment">
+							需要存储的<span class="fragment highlight-blue">内容</span>「content」
+						</li>
+						<li class="fragment">
+							需要存储的文件<span class="fragment highlight-blue">类型</span>「blob」
+						</li>
+						<li class="fragment">
+							「类型+内容」计算<span class="fragment highlight-blue">SHA-1</span>值, 根据SHA-1值生成<span class="fragment highlight-blue">文件路径和名称</span>
+						</li>
+						<li class="fragment">
+							使用zlib生成<span class="fragment highlight-blue">压缩</span>文件并存储
+						</li>
+					</ul>
+					<pre class="fragment">
+							<code class="plaintext" data-trim data-noescape contenteditable>
+											.git/objects/<mark>7d/e504fb32f2227f3616463b55fd02501ce2dd32</mark>
+							</code>
+						</pre>
+				</section>
+				<section>
+					<h2>Git 存储文件类型</h2>
+					<p>blob</p>
+					<p>tree</p>
+					<p>commit</p>
+				</section>
+			</section>
+
+			<section>
+				<h2>Demo🌚</h2>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
