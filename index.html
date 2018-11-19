@@ -52,6 +52,9 @@
 					<p>Git</p>
 					<img src="assets/image/snapshots.png" alt="">
 				</section>
+				<section data-markdown>
+					> Git is fundamentally a content-addressable filesystem with a VCS user interface written on top of it
+				</section>
 				<section>
 					<h2>一致性</h2>
 					<p>所有在 Git 中存储的文件都被计算过
@@ -62,11 +65,8 @@
 					<p>SHA-1 Hash: 40个字符长度(0-9和a-f)</p>
 					<pre><code data-trim>7de504fb32f2227f3616463b55fd02501ce2dd32</code></pre>
 				</section>
-				<section data-markdown>
-					> Git is fundamentally a content-addressable filesystem with a VCS user interface written on top of it
-				</section>
 				<section class="text-left">
-					<h2>Git 创建二进制文件过程</h2>
+					<h2>Git 存储二进制文件过程</h2>
 					<ul>
 						<li class="fragment">
 							需要存储的<span class="fragment highlight-blue">内容</span>「content」
@@ -89,14 +89,49 @@
 				</section>
 				<section>
 					<h2>Git 存储文件类型</h2>
-					<p>blob</p>
-					<p>tree</p>
-					<p>commit</p>
+					<p>blob 二进制文件</p>
+					<p>tree 文件树 (目录)</p>
+					<p>commit 提交记录</p>
 				</section>
 			</section>
 
 			<section>
-				<h2>Demo🌚</h2>
+				<section>
+					<h2>Demo🌚</h2>
+				</section>
+				<section>
+					<h2>小总结👌</h2>
+					<ol>
+						<li class="fragment">打包每一个二进制文件并存储: <span class="fragment highlight-red">blob</span> 💎</li>
+						<li class="fragment">为当前目录结构生成一份快照: 文件树对象 <span class="fragment highlight-red">tree</span> 📁</li>
+						<li class="fragment">为当前快照标记一段有意义的文字: 提交 <span class="fragment highlight-red">commit</span> 📦</li>
+					</ol>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>一些链接🏝</h2>
+					<ul>
+						<li>
+							<a href="https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain" target="_blank">Git官方文档
+								https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain</a>
+
+						</li>
+						<li>
+							<a href="https://github.com/k88hudson/git-flight-rules" target="_blank">Git起飞 28k⭐️
+								https://github.com/k88hudson/git-flight-rules</a>
+						</li>
+						<li>
+							<a href="https://github.com/30-seconds/30-seconds-of-code" target="_blank">JS实用小段代码 32⭐️
+								https://github.com/30-seconds/30-seconds-of-code
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section data-background-image="./assets/image/OnlyDeadFishGoWithTheFlow.jpg" data-background-size="contain">
+
+				</section>
 			</section>
 		</div>
 	</div>
